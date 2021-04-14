@@ -1,9 +1,13 @@
-import express from 'express';
+import express, { Request, Response, Application } from 'express';
+import routes from './routes';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import 'dotenv/config'
+import 'dotenv/config';
+
+
+
 const URI = process.env.MONGO_LINK;
-const app = express();
+const app: Application = express();
 const PORT = 3000;
 
 app.use(cors());
@@ -23,6 +27,7 @@ connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
 
+routes({app})
 
 app.get('/', (req,res ) => {
   res.json({"message": "Welcome to ExpressMongoApp application. Created by IT Jugadu"});
