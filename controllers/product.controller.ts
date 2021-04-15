@@ -9,7 +9,8 @@ async function newProduct({
   description,
   category
 } : CreateQuery<IProduct>){
-  const myproduct = new Product({ id,
+  const myproduct = new Product({
+    id,
     title,
     image,
     price,
@@ -19,4 +20,13 @@ async function newProduct({
   await myproduct.save();
 }
 
-export default {newProduct};
+async function getSingleProduct(id: any) {
+  return await Product.find({id: id});
+}
+
+async function getAllProduct() {
+  return await Product.find();
+}
+
+
+export default {newProduct, getSingleProduct, getAllProduct};
