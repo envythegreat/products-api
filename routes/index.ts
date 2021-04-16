@@ -11,10 +11,9 @@ export default ({app}: TRoutesInput) => {
         price: req.body.price,
         description: req.body.description,
         category: req.body.category
-    }
-    await productController.newProduct(myProducts)
-      .then(() => res.json('Product Added!'))
-      .catch(err => res.status(400).json(`Error : ${err}`));
+    };
+    const pp = await productController.newProduct(myProducts);
+    return res.send({pp})
   })
 
   app.get('/api/products/', async(req, res) => {

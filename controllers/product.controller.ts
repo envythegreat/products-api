@@ -8,16 +8,20 @@ async function newProduct({
   price,
   description,
   category
-} : CreateQuery<IProduct>){
-  const myproduct = new Product({
+} : CreateQuery<IProduct>): Promise<IProduct>{
+  return Product.create({
     id,
     title,
     image,
     price,
     description,
     category
+  }).then((data: IProduct) => {
+    return data;
   })
-  await myproduct.save();
+  .catch((error: Error) => {
+    throw error;
+  });
 }
 
 async function getSingleProduct(id: any) {

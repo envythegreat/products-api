@@ -5,7 +5,7 @@ import 'dotenv/config';
 import connect from './controllers/db.controller'
 
 
-const URI = process.env.MONGO_LINK;
+const URI = process.env.MONGO_URL;
 const app: Application = express();
 const PORT = 3000;
 
