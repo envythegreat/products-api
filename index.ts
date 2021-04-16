@@ -18,9 +18,6 @@ app.use(express.urlencoded({
 connect({db: URI!})
 routes({app})
 
-app.get('/', (req,res ) => {
-  res.json({"message": "Welcome to ExpressMongoApp application. Created by IT Jugadu"});
-})
 
 app.listen(PORT, () => {
   console.log(`Express with Typescript! http://localhost:${PORT}`);
