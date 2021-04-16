@@ -23,11 +23,16 @@ export default ({app}: TRoutesInput) => {
       .catch(err => res.status(400).json('Error: ' + err));
   })
 
-  app.get('/api/products/:id/', async(req, res) => {
+  app.get('/api/products/id/:id/', async(req, res) => {
     await productController.getSingleProduct(req.params.id)
       .then(products => res.json(products))
       .catch(err => res.status(400).json('Error: ' + err));
   })
 
-  
+  app.get('/api/product/category/:category', async(req, res) => {
+    await productController.categories(req.params.category)
+      .then(cat => res.json(cat))
+      .catch(err => res.status(400).json('Error: ' + err))
+  })
+
 }

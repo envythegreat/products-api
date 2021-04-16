@@ -28,5 +28,13 @@ async function getAllProduct() {
   return await Product.find();
 }
 
+async function paginitaion() {
 
-export default {newProduct, getSingleProduct, getAllProduct};
+}
+
+async function categories(category: any) {
+  return await Product.find({category: category});
+}
+
+
+export default {newProduct, getSingleProduct, getAllProduct, categories};

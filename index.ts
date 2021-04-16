@@ -1,9 +1,8 @@
-import express, { Request, Response, Application } from 'express';
+import express, { Application } from 'express';
 import routes from './routes';
 import cors from 'cors';
-import mongoose from 'mongoose';
 import 'dotenv/config';
-
+import connect from './controllers/db.controller'
 
 
 const URI = process.env.MONGO_LINK;
@@ -16,17 +15,7 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-mongoose.connect(URI!, {
-  useNewUrlParser: true, 
-  useCreateIndex: true, 
-  useUnifiedTopology: true
-})
-const connection = mongoose.connection;
-
-connection.once('open', () => {
-  console.log("MongoDB database connection established successfully");
-})
-
+connect({db: URI!})
 routes({app})
 
 app.get('/', (req,res ) => {
