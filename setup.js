@@ -26,5 +26,5 @@ module.exports = async function() {
 
   // Set reference to mongod in order to close the server during teardown.
   global.__MONGOD__ = mongod;
-  process.env.MONGO_URL = mongoConfig.mongoUri;
+  process.env.MONGO_URI = mongoConfig.mongoUri;
 };

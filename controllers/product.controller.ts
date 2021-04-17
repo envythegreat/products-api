@@ -24,21 +24,23 @@ async function newProduct({
   });
 }
 
-async function getSingleProduct(id: any) {
+async function getSingleProduct(id: number) {
   return await Product.find({id: id});
 }
 
-async function getAllProduct() {
-  return await Product.find();
+async function getAllProduct(query: Object,limit: number) {
+  return await Product.find(query).limit(limit);
 }
 
-async function paginitaion() {
+// async function paginitaion(page:number, size:number) {
+//   return await Product.find({})
+//     .limit(size)
+//     .skip(size * (page - 1))
+// }
 
-}
-
-async function categories(category: any) {
-  return await Product.find({category: category});
-}
+// async function categories(category: string, limit: number) {
+//   return await Product.find({category: category}).limit(limit);
+// }
 
 
-export default {newProduct, getSingleProduct, getAllProduct, categories};
+export default {newProduct, getSingleProduct, getAllProduct};

@@ -4,7 +4,7 @@ import Controller from '../controllers/product.controller';
 
 describe('User controller', () => {
   beforeAll(async () => {
-    await mongoose.connect(process.env.MONGO_URL!, {
+    await mongoose.connect(process.env.MONGO_URI!, {
       useNewUrlParser: true, 
       useCreateIndex: true, 
       useUnifiedTopology: true
