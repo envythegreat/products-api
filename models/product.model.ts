@@ -21,7 +21,7 @@ const productSchema: Schema = new Schema({
   title: {
     type: String,
     required: true,
-    minlength: 15
+    minlength: [10, 'Product Title is  too short']
   },
   image: {
     type: String,
@@ -34,7 +34,7 @@ const productSchema: Schema = new Schema({
   description: {
     type: String,
     required: true,
-    minlength: 50
+    minlength: [50, 'Product Description is  too short']
   },
   category: {
     type: String,
