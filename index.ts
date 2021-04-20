@@ -22,3 +22,5 @@ routes({app})
 app.listen(PORT, () => {
   console.log(`Express with Typescript! http://localhost:${PORT}`);
 });
+
+module.exports = app;

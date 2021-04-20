@@ -10,6 +10,8 @@ let myProducts = {
   category: "shirt"
 }
 describe('Product controller', () => {
+
+
   beforeAll(async () => {
     await mongoose.connect(process.env.MONGO_URI!, {
       useNewUrlParser: true, 
@@ -17,9 +19,11 @@ describe('Product controller', () => {
       useUnifiedTopology: true
     });
   });
+
   afterAll(async () => {
     mongoose.connection.close();
   });
+  
   it('Add New Product', async () => {  
     const newProduct = await Controller.newProduct(myProducts)
     expect(newProduct.id).toEqual(myProducts.id)
@@ -46,6 +50,17 @@ describe('Product controller', () => {
         'Product validation failed: description: Product Description is  too short'
       );
     }
+  })
+
+  it('Get Single Product', async () => {
+    myProducts.description = "ailed: description: Product Description is  too short";
+    myProducts.id = 2;
+    const newProduct = await Controller.newProduct(myProducts);
+    await Controller
+      .getSingleProduct(myProducts.id)
+      .then(res => {
+        expect(newProduct.id).toEqual(res[0].id)
+      })
   })
 
 })
