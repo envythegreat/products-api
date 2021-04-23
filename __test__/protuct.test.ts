@@ -1,10 +1,13 @@
 import mongoose from 'mongoose';
 import Controller from '../controllers/product.controller';
-
 let myProducts = {
   id: 200,
   title: "T-shirt My HHhHH",
-  image: "https://google.com/image.png",
+  image: [
+    "https://google.com/image.png",
+    "https://google.com/image.png",
+    "https://google.com/image.png"
+  ],
   price: 69.3,
   description: "lorem epsume hhh not all hhh is hhh but big HHH is no hhh",
   category: "shirt"

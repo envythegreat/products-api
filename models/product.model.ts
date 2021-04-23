@@ -4,7 +4,7 @@ import { Schema, Document, Model, model } from 'mongoose'
 export interface IProduct extends Document {
   id: number;
   title: string;
-  image: string;
+  image: [String];
   price: number;
   description: string;
   category?: string;
@@ -24,7 +24,7 @@ const productSchema: Schema = new Schema({
     minlength: [10, 'Product Title is  too short']
   },
   image: {
-    type: String,
+    type: [String],
     required: true,
   },
   price:{
